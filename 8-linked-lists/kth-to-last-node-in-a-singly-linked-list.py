@@ -25,6 +25,31 @@
 
 
 
+# My Attempt
+
+def kth_to_last_node(k, head):
+    
+    # length of list
+    
+    current = head
+    len_of_list = 1
+        
+    while current.next:
+        current = current.next
+        len_of_list += 1
+        
+    how_far_to_go = len_of_list - k
+    
+    current_node = head
+    
+    for i in range(how_far_to_go):
+        current_node = current_node.next
+        
+    return current_node
+
+
+
+
 
 # IC Solution: First Approach
 
