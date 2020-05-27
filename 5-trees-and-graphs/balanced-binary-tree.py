@@ -18,3 +18,32 @@
 #     def insert_right(self, value):
 #         self.right = BinaryTreeNode(value)
 #         return self.right
+
+
+# My Attempt
+
+def is_balanced(tree_root):
+
+    # Determine if the tree is superbalanced
+        
+    to_visit = [(tree_root, 1)]
+    minimum = None
+
+    while to_visit:
+        current, level = to_visit.pop(0)
+
+
+        if (current.left is None or current.right is None) and minimum is None:
+            minimum = level
+        
+        if minimum and (level > minimum + 1):
+            return False
+
+        else:
+            if current.left:
+                to_visit.append((current.left, level + 1))
+
+            if current.right:
+                to_visit.append((current.right, level + 1))
+
+    return True
