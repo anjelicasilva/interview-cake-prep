@@ -21,7 +21,7 @@
 
 # IC Solution: First Approach
 
-  def is_binary_search_tree(root):
+def is_binary_search_tree(root):
 
     # Start at the root, with an arbitrarily low lower bound
     # and an arbitrarily high upper bound
@@ -45,3 +45,19 @@
     # If none of the nodes were invalid, return true
     # (at this point we have checked all nodes)
     return True
+
+
+# IC Solution: Second Approach using Recursion
+
+
+def is_binary_search_tree(root,
+                          lower_bound=-float('inf'),
+                          upper_bound=float('inf')):
+    if not root:
+        return True
+
+    if (root.value >= upper_bound or root.value <= lower_bound):
+        return False
+
+    return (is_binary_search_tree(root.left, lower_bound, root.value)
+            and is_binary_search_tree(root.right, root.value, upper_bound))
