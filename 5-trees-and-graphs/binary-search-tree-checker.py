@@ -18,6 +18,29 @@
 #         return self.right
 
 
+# My Attempt
+
+def is_binary_search_tree(root):
+
+    # Determine if the tree is a valid binary search tree
+    
+    node_and_lower_upper_bounds_stack = [(root, -float('inf'), float('inf'))]
+    
+    while node_and_lower_upper_bounds_stack:
+        node, lower_bound, upper_bound = node_and_lower_upper_bounds_stack.pop()
+        
+        if node.value <= lower_bound or node.value >= upper_bound:
+            return False
+            
+        if node.left:
+            node_and_lower_upper_bounds_stack.append((node.left, lower_bound, node.value))
+            
+        if node.right:
+            node_and_lower_upper_bounds_stack.append((node.right, node.value, upper_bound))
+            
+    return True
+    
+
 
 # IC Solution: First Approach
 
