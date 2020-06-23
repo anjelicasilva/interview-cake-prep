@@ -20,3 +20,9 @@
 
 # Python 3.6
 # Write a function for finding the index of the "rotation point," which is where I started working from the beginning of the dictionary. This list is huge (there are lots of words I don't know) so we want to be efficient here.
+
+
+def find_rotation_point(words):
+    first_word = words[0]
+    floor_index = 0
+    ceiling_index = len(words) - 1
